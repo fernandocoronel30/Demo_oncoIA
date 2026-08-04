@@ -16,7 +16,7 @@ const API_KEY = process.env.OPENAI_API_KEY;
 const MODEL = process.env.OPENAI_MODEL || 'gpt-5.5';
 
 if (!API_KEY) {
-  console.warn('⚠️  ANTHROPIC_API_KEY no está configurada. Copia .env.example a .env y agrega tu clave.');
+  console.warn('⚠️ OPENAI_API_KEY no está configurada.');
 }
 
 app.use(express.json());
@@ -98,7 +98,7 @@ app.post('/api/chat', async (req, res) => {
 
     if (!API_KEY) {
       return res.status(500).json({
-        reply: 'El asistente OncoIA aún no está conectado a la IA (falta configurar ANTHROPIC_API_KEY en el servidor).'
+        reply: 'El asistente OncoIA aún no está conectado a la IA (falta configurar OPENAI_API_KEY en el servidor).'
       });
     }
 
@@ -111,31 +111,38 @@ app.post('/api/chat', async (req, res) => {
     // 4.3 Armar historial de conversación (limitado a los últimos turnos para no crecer indefinidamente)
     const historialPrevio = Array.isArray(history) ? history.slice(-8) : [];
 
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'x-api-key': API_KEY,
-        'anthropic-version': '2023-06-01',
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify({
-        model: MODEL,
-        max_tokens: 500,
-        system: SYSTEM_PROMPT,
-        messages: [...historialPrevio, { role: 'user', content: userContent }]
-      })
-    });
+    const response = await fetch(
+  "https://api.openai.com/v1/chat/completions",
+  {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${API_KEY}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      model: MODEL,
+      messages: [
+        {
+          role: "system",
+          content: SYSTEM_PROMPT
+        },
+        ...historialPrevio,
+        {
+          role: "user",
+          content: userContent
+        }
+      ],
+      temperature: 0.3,
+      max_tokens: 500
+    })
+  }
+);
 
-    if (!response.ok) {
-      const errorBody = await response.text();
-      console.error('Error de la API de Anthropic:', response.status, errorBody);
-      return res.status(502).json({ reply: 'OncoIA no pudo procesar tu pregunta en este momento. Intenta de nuevo en unos segundos.' });
-    }
 
     const data = await response.json();
-    const reply = data.content && data.content[0] && data.content[0].text
-      ? data.content[0].text
-      : 'No obtuve una respuesta clara. ¿Puedes reformular tu pregunta?';
+    const reply =
+  data.choices?.[0]?.message?.content ??
+  "No obtuve una respuesta clara. ¿Puedes reformular tu pregunta?";
 
     res.json({ reply });
   } catch (err) {
