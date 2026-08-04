@@ -11,9 +11,9 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const API_KEY = process.env.ANTHROPIC_API_KEY;
+const API_KEY = process.env.OPENAI_API_KEY;
 // Verifica el nombre exacto del modelo vigente en docs.claude.com antes de desplegar a producción.
-const MODEL = process.env.ANTHROPIC_MODEL || 'claude-sonnet-4-6';
+const MODEL = process.env.OPENAI_MODEL || 'gpt-5.5';
 
 if (!API_KEY) {
   console.warn('⚠️  ANTHROPIC_API_KEY no está configurada. Copia .env.example a .env y agrega tu clave.');
