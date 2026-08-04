@@ -141,8 +141,15 @@ app.post('/api/chat', async (req, res) => {
 
     const data = await response.json();
      if (!response.ok) {
-  const errorBody = await response.text();
-  console.error(errorBody);
+  console.error("========== ERROR OPENAI ==========");
+  console.error(JSON.stringify(data, null, 2));
+  console.error("=================================");
+
+  return res.status(response.status).json({
+    reply:
+      data.error?.message ||
+      "OpenAI devolvió un error al procesar la solicitud."
+  });
 }
      console.log("========== OPENAI ==========");
 console.log(JSON.stringify(data, null, 2));
