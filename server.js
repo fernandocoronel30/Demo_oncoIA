@@ -140,9 +140,15 @@ app.post('/api/chat', async (req, res) => {
 
 
     const data = await response.json();
+     if (!response.ok) {
+  console.error("OpenAI respondió con error:");
+  console.error(JSON.stringify(data, null, 2));
+}
     const reply =
   data.choices?.[0]?.message?.content ??
   "No obtuve una respuesta clara. ¿Puedes reformular tu pregunta?";
+     console.log("Respuesta completa de OpenAI:");
+console.log(JSON.stringify(data, null, 2));
 
     res.json({ reply });
   } catch (err) {
