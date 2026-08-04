@@ -140,7 +140,8 @@ app.post('/api/chat', async (req, res) => {
 
 
     const data = await response.json();
-     if (!response.ok) {
+
+if (!response.ok) {
   console.error("========== ERROR OPENAI ==========");
   console.error(JSON.stringify(data, null, 2));
   console.error("=================================");
@@ -151,16 +152,14 @@ app.post('/api/chat', async (req, res) => {
       "OpenAI devolvió un error al procesar la solicitud."
   });
 }
-     console.log("========== OPENAI ==========");
-console.log(JSON.stringify(data, null, 2));
-console.log("============================");
-    const reply =
-  data.choices?.[0]?.message?.content ??
-  "No obtuve una respuesta clara. ¿Puedes reformular tu pregunta?";
-     console.log("Respuesta completa de OpenAI:");
+
 console.log(JSON.stringify(data, null, 2));
 
-    res.json({ reply });
+const reply =
+  data.choices?.[0]?.message?.content ??
+  "No obtuve una respuesta clara. ¿Puedes reformular tu pregunta?";
+
+res.json({ reply });
   } catch (err) {
     console.error('Error inesperado en /api/chat:', err);
     res.status(500).json({ reply: 'Ocurrió un error inesperado. Intenta de nuevo en unos momentos.' });
