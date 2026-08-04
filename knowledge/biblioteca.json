@@ -1,0 +1,44 @@
+[
+  {
+    "id": "quimioterapia",
+    "tema": "Quimioterapia",
+    "palabras_clave": ["quimioterapia", "quimio", "medicamento", "fármacos oncológicos"],
+    "contenido": "La quimioterapia es un tratamiento que utiliza medicamentos para eliminar o controlar el crecimiento de células cancerosas. Puede aplicarse por vía oral o intravenosa, en ciclos definidos por el equipo médico según el tipo de cáncer y la respuesta del paciente. Los efectos secundarios más comunes incluyen cansancio, náuseas, caída de cabello y baja temporal de defensas; no todos los pacientes los experimentan igual y el equipo médico puede recetar medicamentos de apoyo para manejarlos. El número de ciclos y su duración varían según el diagnóstico específico."
+  },
+  {
+    "id": "biopsia",
+    "tema": "Biopsia",
+    "palabras_clave": ["biopsia", "muestra de tejido", "análisis de tejido"],
+    "contenido": "Una biopsia es un procedimiento en el que se extrae una pequeña muestra de tejido para analizarla en laboratorio. Es la manera más confiable de confirmar si existen células cancerosas y determinar sus características específicas (tipo, grado, receptores). Existen distintos tipos: por aguja, incisional, excisional o guiada por imagen, según la ubicación del tejido. Los resultados suelen tardar entre varios días y dos semanas, dependiendo del tipo de análisis requerido."
+  },
+  {
+    "id": "radioterapia",
+    "tema": "Radioterapia",
+    "palabras_clave": ["radioterapia", "radiación", "rayos"],
+    "contenido": "La radioterapia utiliza radiación de alta energía dirigida con precisión para destruir células cancerosas o reducir tumores, procurando afectar lo menos posible al tejido sano circundante. Un tratamiento típico puede requerir varias sesiones a lo largo de semanas, cada una de corta duración (minutos). Los cuidados de la piel en la zona tratada (evitar sol directo, usar cremas recomendadas por el equipo médico) son importantes durante y después del tratamiento."
+  },
+  {
+    "id": "consulta",
+    "tema": "Preparación de consultas",
+    "palabras_clave": ["consulta", "prepararme", "preparar", "cita médica", "preguntas al doctor"],
+    "contenido": "Para prepararse para una consulta oncológica se recomienda: anotar los síntomas y dudas con anticipación, llevar estudios y análisis previos, acudir acompañado si es posible, tomar notas de las respuestas del médico y no dudar en pedir que se repita o explique algo que no quedó claro. También es útil llevar una lista de medicamentos actuales y preguntar directamente sobre el siguiente paso del tratamiento."
+  },
+  {
+    "id": "nutricion",
+    "tema": "Nutrición durante el tratamiento",
+    "palabras_clave": ["nutricion", "alimentacion", "comer", "dieta", "apetito"],
+    "contenido": "Durante el tratamiento oncológico, mantener una alimentación balanceada ayuda a conservar energía y fortaleza. Es común experimentar cambios en el apetito o el gusto; en esos casos conviene hacer comidas pequeñas y frecuentes, mantenerse hidratado y evitar alimentos crudos si las defensas están bajas. Un nutriólogo especializado en oncología puede dar recomendaciones personalizadas según el tipo de tratamiento."
+  },
+  {
+    "id": "salud_emocional",
+    "tema": "Salud emocional",
+    "palabras_clave": ["emocional", "ansiedad", "miedo", "triste", "psicologico", "familia"],
+    "contenido": "Es normal sentir ansiedad, miedo o tristeza tras un diagnóstico oncológico, tanto para el paciente como para su familia. Hablar abiertamente sobre el diagnóstico, buscar grupos de apoyo y, cuando sea necesario, acompañamiento de un psicooncólogo, puede ayudar significativamente a sobrellevar el proceso emocional del tratamiento."
+  },
+  {
+    "id": "especialista",
+    "tema": "Contacto con especialista",
+    "palabras_clave": ["especialista", "hablar con un medico", "contactar doctor"],
+    "contenido": "Si el usuario solicita hablar con un especialista humano, se le debe indicar amablemente que visite la sección de Contacto de la plataforma para dejar sus datos, y que el equipo correspondiente se pondrá en contacto. OncoIA no agenda citas ni sustituye la atención médica directa."
+  }
+]
